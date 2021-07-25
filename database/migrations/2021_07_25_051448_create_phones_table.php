@@ -17,7 +17,11 @@ class CreatePhonesTable extends Migration
             $table->id();
             $table->string('number');
             $table->string('label');
+            $table->unsignedBigInteger('address_id');
             $table->timestamps();
+
+            $table->foreign('address_id')->references('id')
+            ->on('addresses')->onDelete('cascade');
         });
     }
 
