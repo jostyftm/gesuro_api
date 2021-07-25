@@ -21,7 +21,9 @@ class IdentificationType extends Model
     ];
 
     /**
-     * Relationships
+     * Relationships with User
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany 
      */
     public function users(): HasMany
     {   

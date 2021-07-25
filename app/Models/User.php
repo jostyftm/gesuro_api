@@ -46,7 +46,9 @@ class User extends Authenticatable
     ];
 
     /**
-     * Relationships
+     * Relationships qith IdentificationType
+     * 
+     *  @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function identificationType(): BelongsTo
     {
