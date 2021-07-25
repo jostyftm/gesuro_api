@@ -27,20 +27,6 @@ class CreateAddressesTable extends Migration
             $table->foreign('user_id')->references('id')
             ->on('users')->onDelete('cascade');
         });
-
-        // Pivot table between Address and Phone
-        Schema::create('address_phones', function(Blueprint $table){
-            $table->unsignedBigInteger('address_id');
-            $table->unsignedBigInteger('phone_id');
-
-            $table->primary(['address_id','phone_id']);
-            
-            $table->foreign('address_id')->references('id')
-            ->on('addresses')->onDelete('cascade');
-            
-            $table->foreign('phone_id')->references('id')
-            ->on('phones')->onDelete('cascade');
-        });
     }
 
     /**
@@ -50,7 +36,6 @@ class CreateAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_phones');
         Schema::dropIfExists('addresses');
     }
 }
