@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -53,5 +54,15 @@ class User extends Authenticatable
     public function identificationType(): BelongsTo
     {
         return $this->belongsTo(IdentificationType::class, 'identification_type_id');
+    }
+
+    /**
+     * Relationship with Address
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function address(): HasOne
+    {
+        return $this->hasOne(Address::class, 'user_id');
     }
 }
