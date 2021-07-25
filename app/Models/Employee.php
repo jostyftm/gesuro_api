@@ -23,6 +23,17 @@ class Employee extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'user_id',
+        'charge_id',
+        'company_headquarter_id'
+    ];
+    
+    /**
      * Relationship with User
      * 
      * @return Illuminate\Database\Eloquent\Relations\BelongsTo
