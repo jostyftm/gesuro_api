@@ -12,8 +12,10 @@ class DatabaseSeeder extends Seeder
      *  @var array 
      */
     private $seeds = [
-        'migrate',
-        'roles'
+        // 'migrate',
+        // 'roles',
+        // 'provinces',
+        'cities',
     ];
 
 
@@ -46,5 +48,21 @@ class DatabaseSeeder extends Seeder
     public function roles()
     {
         $this->call(RoleSeeder::class);
+    }
+   
+    /**
+     * Seed Provinces Table
+     */
+    public function provinces()
+    {
+        $this->call(ProvinceSeeder::class);
+    }
+   
+    /**
+     * Seed Cities Table
+     */
+    public function cities()
+    {
+        $this->call(CitySeeder::class);
     }
 }
