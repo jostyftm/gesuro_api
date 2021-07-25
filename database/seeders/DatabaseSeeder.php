@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         // 'migrate',
         // 'roles',
         // 'provinces',
-        'cities',
+        // 'cities',
+        'identificationTypes',
     ];
 
 
@@ -64,5 +65,13 @@ class DatabaseSeeder extends Seeder
     public function cities()
     {
         $this->call(CitySeeder::class);
+    }
+   
+    /**
+     * Seed IdentificationTypes Table
+     */
+    public function identificationTypes()
+    {
+        $this->call(IdentificationTypeSeeder::class);
     }
 }
