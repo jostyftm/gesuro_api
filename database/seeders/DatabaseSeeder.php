@@ -12,14 +12,13 @@ class DatabaseSeeder extends Seeder
      *  @var array 
      */
     private $seeds = [
-        // 'migrate',
-        // 'roles',
-        // 'provinces',
-        // 'cities',
-        // 'identificationTypes',
-        // 'users',
-        // 'companies',
+        'migrate',
+        'roles',
+        'provinces',
+        'cities',
+        'identificationTypes',
         'charges',
+        'companies',
     ];
 
 
