@@ -22,11 +22,15 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedInteger('address_id');
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('identification_type_id')->references('id')
             ->on('identification_types')->onDelete('cascade');
+            
+            $table->foreign('address_id')->references('id')
+            ->on('addresses')->onDelete('cascade');
         });
     }
 

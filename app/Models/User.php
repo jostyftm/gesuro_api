@@ -25,6 +25,7 @@ class User extends Authenticatable
         'identification_number',
         'email',
         'password',
+        'address_id'
     ];
 
     /**
@@ -59,10 +60,10 @@ class User extends Authenticatable
     /**
      * Relationship with Address
      * 
-     * @return Illuminate\Database\Eloquent\Relations\HasOne
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function address(): HasOne
+    public function address(): BelongsTo
     {
-        return $this->hasOne(Address::class, 'user_id');
+        return $this->belongsTo(Address::class, 'address_id');
     }
 }
