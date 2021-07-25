@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
+use App\Models\IdentificationType;
+use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -22,12 +25,18 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $types = IdentificationType::all()->pluck('id');
+
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'name'                      => $this->faker->name(),
+            'last_name'                 => $this->faker->lastName(),
+            'identification_type_id'    => $types->random(),
+            'identification_number'     => $this->faker->randomNumber(5),
+            'email'                     => $this->faker->unique()->safeEmail(),
+            'email_verified_at'         => now(),
+            'password'                  => bcrypt('password'),
+            'address_id'                => Address::factory()->has(Phone::factory()->count(2), 'phones')->create(),
+            'remember_token'            => Str::random(10),
         ];
     }
 
