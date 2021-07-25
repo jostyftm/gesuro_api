@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Address;
+use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AddressFactory extends Factory
@@ -21,8 +22,12 @@ class AddressFactory extends Factory
      */
     public function definition()
     {
+        $cities = City::all()->pluck('id');
+
         return [
-            //
+            'address'       =>  $this->faker->streetAddress(),
+            'neighborhood'  =>  $this->fake->streetName(),
+            'city_id'       =>  $cities->random()
         ];
     }
 }

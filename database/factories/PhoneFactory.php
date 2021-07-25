@@ -22,7 +22,8 @@ class PhoneFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'number'    =>  $this->faker->phoneNumber(),
+            'name'      =>  'movil' 
         ];
     }
 }
