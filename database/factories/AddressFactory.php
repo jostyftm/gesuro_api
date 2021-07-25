@@ -26,7 +26,7 @@ class AddressFactory extends Factory
 
         return [
             'address'       =>  $this->faker->streetAddress(),
-            'neighborhood'  =>  $this->fake->streetName(),
+            'neighborhood'  =>  $this->faker->streetName(),
             'city_id'       =>  $cities->random()
         ];
     }

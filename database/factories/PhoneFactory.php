@@ -23,7 +23,7 @@ class PhoneFactory extends Factory
     {
         return [
             'number'    =>  $this->faker->phoneNumber(),
-            'name'      =>  'movil' 
+            'label'     =>  'movil' 
         ];
     }
 }
