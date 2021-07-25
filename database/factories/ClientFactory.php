@@ -2,19 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Charge;
-use App\Models\Employee;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EmployeeFactory extends Factory
+class ClientFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Employee::class;
+    protected $model = Client::class;
 
     /**
      * Define the model's default state.
@@ -24,9 +23,7 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'       =>  User::factory()->create(),
-            'charge_id'     =>  Charge::all()->pluck('id')->random(),
-            'commission'    =>  random_int(10, 50)    
+            'user_id'   =>  User::factory()->create()
         ];
     }
 }

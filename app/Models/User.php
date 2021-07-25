@@ -76,4 +76,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employee::class, 'user_id');
     }
+
+    /**
+     * Relationship with Client
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function client(): HasOne
+    {
+        return $this->hasOne(Client::class, 'user_id');
+    }
 }
