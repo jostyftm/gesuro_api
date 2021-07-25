@@ -12,12 +12,13 @@ class DatabaseSeeder extends Seeder
      *  @var array 
      */
     private $seeds = [
-        'migrate',
-        'roles',
-        'provinces',
-        'cities',
-        'identificationTypes',
-        'users',
+        // 'migrate',
+        // 'roles',
+        // 'provinces',
+        // 'cities',
+        // 'identificationTypes',
+        // 'users',
+        'companies'
     ];
 
 
@@ -82,5 +83,13 @@ class DatabaseSeeder extends Seeder
     public function users()
     {
         $this->call(UserSeeder::class);
+    }
+   
+    /**
+     * Seed Companies Table
+     */
+    public function companies()
+    {
+        $this->call(CompanySeeder::class);
     }
 }

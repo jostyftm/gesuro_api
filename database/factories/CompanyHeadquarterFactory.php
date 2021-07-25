@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
 use App\Models\CompanyHeadquarter;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,8 @@ class CompanyHeadquarterFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'          =>  'pricipal',
+            'address_id'    =>  Address::factory()->create()
         ];
     }
 }

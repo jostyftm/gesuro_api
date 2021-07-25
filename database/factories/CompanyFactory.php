@@ -21,8 +21,16 @@ class CompanyFactory extends Factory
      */
     public function definition()
     {
+        $companyName = $this->faker->company();
+        $nit = $this->faker->unique()->randomNumber(5).'-'.random_int(1, 9);
+        $website = 'http://'.trim(strtolower($companyName)).'.com';
+
         return [
-            //
+            'name'      =>  $companyName,
+            'nit'       =>  $nit,
+            'email'     =>  $this->faker->unique()->companyEmail(),
+            'sitio_web' =>  $website, 
+            'avatar'    =>  ''
         ];
     }
 }
