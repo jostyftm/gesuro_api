@@ -52,4 +52,14 @@ class Address extends Model
     {
         return $this->hasMany(Phone::class, 'address_id');
     }
+
+    /**
+     * Relationship with CompanyHeadquarter
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function headquarters(): HasMany
+    {
+        return $this->hasMany(CompanyHeadquarter::class, 'address_id');
+    }
 }
