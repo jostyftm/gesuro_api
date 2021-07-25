@@ -15,7 +15,7 @@ class EmployeeController extends ApiController
      */
     public function index()
     {
-        $employees = Employee::with('user')
+        $employees = Employee::with(['user.address.city.province', 'companyHeadquarter', 'charge'])
         ->get();
 
         return $this->successResponse($employees);
