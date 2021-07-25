@@ -66,4 +66,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Address::class, 'address_id');
     }
+
+    /**
+     * Relationship with Employee
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function employee(): HasOne
+    {
+        return $this->hasOne(Employee::class, 'user_id');
+    }
 }
