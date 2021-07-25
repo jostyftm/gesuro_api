@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         // 'cities',
         // 'identificationTypes',
         // 'users',
-        'companies'
+        // 'companies',
+        'charges',
     ];
 
 
@@ -91,5 +92,13 @@ class DatabaseSeeder extends Seeder
     public function companies()
     {
         $this->call(CompanySeeder::class);
+    }
+   
+    /**
+     * Seed Charges Table
+     */
+    public function charges()
+    {
+        $this->call(ChargeSeeder::class);
     }
 }
