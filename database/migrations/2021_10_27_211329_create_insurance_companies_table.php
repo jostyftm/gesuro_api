@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompaniesTable extends Migration
+class CreateInsuranceCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('insurance_companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('nit')->unique();
+            $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->string('website')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('phone');
+            $table->string('avatar');
+            $table->string('website');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('insurance_companies');
     }
 }

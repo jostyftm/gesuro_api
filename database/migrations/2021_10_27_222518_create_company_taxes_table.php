@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanyHeadquartersTable extends Migration
+class CreateCompanyTaxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreateCompanyHeadquartersTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_headquarters', function (Blueprint $table) {
+        Schema::create('company_taxes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->unsignedBigInteger('company_id');
-            $table->unsignedBigInteger('address_id');
-            $table->boolean('is_principal')->default(false);
+            $table->unsignedInteger('tax_id');
+            $table->string('value');
+            $table->enum('calculation_type', ['percentage', 'value']);
             $table->timestamps();
 
             $table->foreign('company_id')->references('id')
             ->on('companies')->onDelete('cascade');
-            
-            $table->foreign('address_id')->references('id')
-            ->on('addresses')->onDelete('cascade');
+
+            $table->foreign('tax_id')->references('id')
+            ->on('taxes')->onDelete('cascade');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateCompanyHeadquartersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_headquarters');
+        Schema::dropIfExists('company_taxes');
     }
 }

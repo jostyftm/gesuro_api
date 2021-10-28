@@ -32,4 +32,14 @@ class Company extends Model
         return $this->hasMany(CompanyHeadquarter::class, 'company_id');
     }
 
+    /**
+     * Relationship with CompanyTax
+     * 
+     * @return HasMany
+     */
+    public function companyTaxes(): HasMany
+    {
+        return $this->hasMany(CompanyTax::class, 'company_id');
+    }
+
 }
