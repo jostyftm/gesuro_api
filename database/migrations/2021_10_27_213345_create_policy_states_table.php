@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompaniesTable extends Migration
+class CreatePolicyStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
-            $table->id();
+        Schema::create('policy_states', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
-            $table->string('nit')->unique();
-            $table->string('email')->unique();
-            $table->string('website')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('bg_color')->nullable();
+            $table->string('text_color')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('policy_states');
     }
 }
